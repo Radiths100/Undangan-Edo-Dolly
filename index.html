@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Edo & Dolly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="progress-bar"></div>
+    <img class="bgi" src="https://drive.google.com/thumbnail?id=1KdvtqnbGET3kAB4o1Uafk8HPq-_6ZcJb&sz=w2000" alt="Background">
+    
+    <!-- Audio Player -->
+    <audio id="wedding-music" loop>
+    <source src="https://dl.dropboxusercontent.com/scl/fi/xetgjtl6wb3rzbzzpxbzs/Goodness-Of-God-Bethel-Music-Sudirman-Worship-Instrumental-Cover-1.mp3?rlkey=7ycohqy6b3jjooabtx7dgfsa3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+<!-- Tombol kontrol musik -->
+<button class="music-control" id="musicToggle">
+  <i class="fas fa-play"></i>
+</button>
+    
+    <!-- Cover Section Baru -->
+    <section class="cover-section" id="cover">
+        <div class="cover-content">
+            <h1>Edo & Dolly</h1>
+            <div class="divider"></div>
+            <img class="gbr1" src="https://drive.google.com/thumbnail?id=1-e51cJX3irdY5LopSi0hlDygeiwr4fep&sz=w1000" alt="Edo & Dolly">
+            <p class="text-scale">Dengan penuh syukur dan bahagia, kami mengundang Anda untuk merayakan hari pernikahan kami</p>
+            <p class="date-full">Kamis, 11 September 2025</p>
+            
+            <div class="guest-container">
+                <p class="guest-label">Turut Mengundang Bpk/Ibu/Sdra/i:</p>
+                <div class="guest-name-box">
+                    <span id="guest-name">Tamu Undangan</span>
+                </div>
+            </div>
+            
+            <button class="open-invitation-btn" id="openBtn">Buka Undangan</button>
+        </div>
+    </section>
+    
+    <div class="slider-container" id="slider">
+        <!-- Slide 1: Couple -->
+        <section class="slide slide-1">
+            <div class="slide-content animate-in">
+                <h2>𝓢𝓪𝓵𝓪𝓶 𝓢𝓮𝓳𝓪𝓽𝓮𝓻𝓪𝓱</h2>
+                <p class="text-scale2">
+                Melalui beragam musim dan waktu, kasih setia Tuhan tak pernah berkesudahan. Ia telah memimpin dan menyertai setiap langkah perjalanan cinta ini, dari sebuah pertemuan hingga menjadi sebuah ikrar suci. Kini, dengan kebahagiaan yang tak terkira, kami perkenalkan,
+                </p>
+                <div class="couple-container">
+                    <img class="gbr2" src="https://drive.google.com/thumbnail?id=13LLQa2tkI1lVVsVJ40DXr_egGo7kFwte&sz=w1000" alt="Foto Pasangan">
+                    <div class="couple-info">
+                        <div class="couple">
+                            <h3 class="couple-name">𝐸𝒹𝑜 𝐸𝓇𝓃𝒶𝓁𝒹𝑜 𝑅𝒶𝓊𝒷𝒶𝒷𝒶, 𝒮.𝓈𝒾</h3>
+                            <p class="couple-desc">Putra dari Bapak Yahya Raubaba.SH dan Ibu Sintia Gosepa</p>
+                        </div>
+
+                        <span class="and">&amp;</span>
+
+                        <div class="couple">
+                            <h3 class="couple-name">𝒟𝑜𝓁𝓁𝓎 𝐻𝑜𝑜𝓇</h3>
+                            <p class="couple-desc">Putri dari Bapak Karel Hoor dan Ibu Yuliana Kadop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Slide 2: Date & Location -->
+        <section class="slide slide-2">
+            <div class="slide-content animate-in">
+                <h2>Hari Perayaan</h2>
+                <div class="date-day">Kamis</div>
+                <div class="date-full">11 September 2025</div>
+                <div class="divider"></div>
+                
+                <div class="event-grid">
+                    <div class="event-card">
+                        <i class="fa-solid fa-church event-icon"></i>
+                        <h3 class="event-title">Pemberkatan Nikah</h3>
+                        <p>Pukul. 09.00 WIT - Selesai</p>
+                        &nbsp;
+                        <p>Gereja Maranatha Sorong</p>
+                    </div>
+                    
+                    <div class="event-card">
+                        <i class="fa-solid fa-glass-cheers event-icon"></i>
+                        <h3 class="event-title">Resepsi</h3>
+                        <p>Pukul. 18.00 WIT - Selesai</p>
+                        &nbsp;
+                        <p>JL.Perikanan Klademak 2 Pantai</p>
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                <p class="text-scale">Dengan segala kerendahan hati dan sukacita. Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara pernikahan kami.</p>
+            </div>
+        </section>
+        
+        <!-- Slide 3: Map -->
+        <section class="slide slide-3">
+            <div class="slide-content animate-in">
+                <h2>Lokasi Acara</h2>
+                
+                <div class="location-grid">
+                    <div class="location-card">
+                        <h3 class="event-title">Lokasi Gereja Maranatha</h3>
+                        <div class="map-container">
+                            <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1960.6078984177486!2d131.2868691760116!3d-0.8848636186912431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d59552921aed307%3A0x14faf5fee2227696!2sGKI%20Maranatha%20Sorong!5e1!3m2!1sid!2sid!4v1757257737935!5m2!1sid!2sid allowfullscreen=" loading="lazy"></iframe>
+                        </div>
+                        <a href="https://maps.app.goo.gl/dttqngSj2vpF5vtV8" class="location-btn" target="_blank">Tunjukkan Lokasinya</a>
+                    </div>
+                    
+                    <div class="location-card">
+                        <h3 class="event-title">Lokasi Resepsi</h3>
+                        <div class="map-container">
+                            <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2882.258369032051!2d131.26365128063597!3d-0.887432452089227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwNTMnMTQuOSJTIDEzMcKwMTUnNTUuNCJF!5e0!3m2!1sid!2sid!4v1757257139477!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <a href="https://maps.app.goo.gl/fq2gzENdS7miEofi7" class="location-btn" target="_blank">Tunjukkan Lokasinya</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Slide 4: Turut Mengundang (BARU) -->
+        <section class="slide slide-4">
+            <div class="slide-content animate-in">
+                <h2>Turut Mengundang</h2>
+                
+                <div class="invitation-grid">
+                <div class="invitation-card">
+                    <div class="invitation-icon">🤵</div>
+                    <h3 class="invitation-title">Dari Pihak Pria</h3>
+                    <ul class="invitation-list">
+                    <li>Kel. Bapak Yahya Raubaba</li>
+                    <li>Kel. Besar Raubaba</li>
+                    <li>Kel. Besar Gosepa</li>
+                    <li>Kel. BPPRD Kota Sorong</li>
+                    </ul>
+                </div>
+                
+                <div class="invitation-card">
+                    <div class="invitation-icon">👰</div>
+                    <h3 class="invitation-title">Dari Pihak Wanita</h3>
+                    <ul class="invitation-list">
+                    <li>Keluarga Bapak Karel Hoor</li>
+                    <li>Keluarga Besar Hoor</li>
+                    <li>Keluarga Besar Kadop</li>
+                    </ul>
+                </div>
+                </div>
+
+
+                
+                <div class="bible-verse">
+                    <p>"Sebab itu seorang laki-laki akan meninggalkan ayahnya dan ibunya dan bersatu dengan istrinya, sehingga keduanya menjadi satu daging."</p>
+                    <p class="verse-source">Kejadian 2:24</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Slide 5: Gallery -->
+        <section class="slide slide-5">
+            <div class="slide-content animate-in">
+                <h2>Galeri Kami</h2>
+
+                <div class="gallery-slider">
+                    <button class="gallery-left">&#10094;</button>
+                    <div class="gallery-track">
+                        <img src="https://drive.google.com/thumbnail?id=1oXk4-HHpSDrSFU4IbmOR_QOwXnVVx5KP&sz=w1000" alt="Foto 1">
+                        <img src="https://drive.google.com/thumbnail?id=1LLeTeEVha_vnx8JI4Bk2PT9SYmR6E_ER&sz=w1000" alt="Foto 2">
+                        <img src="https://drive.google.com/thumbnail?id=1ZJyA5Z-jLasVoZw7vjbxtWASEgOWn273&sz=w1000" alt="Foto 3">
+                        <img src="https://drive.google.com/thumbnail?id=1E2lrV-IMiZJNTKezTmSjZBGfiUDj289i&sz=w1000" alt="Foto 4">
+                    </div>
+                    <button class="gallery-right">&#10095;</button>
+                </div>
+
+                <p class="text-scale">
+                "Kebahagiaan bukanlah tentang memiliki segalanya, tetapi tentang menemukan segalanya dalam seseorang."
+                </p>
+            </div>
+        </section>
+        
+        <!-- Slide 6: Countdown & Closing -->
+        <section class="slide slide-6">
+            <div class="slide-content animate-in">
+                <h2>Hitungan Mundur</h2>
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">0</div>
+                        <div class="countdown-label">Hari</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">0</div>
+                        <div class="countdown-label">Jam</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">0</div>
+                        <div class="countdown-label">Menit</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">0</div>
+                        <div class="countdown-label">Detik</div>
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <p class="text-scale3">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+                <p class="text-scale3">Terima kasih atas doa dan restunya</p>
+                <p class="text-scale3">Yang berbahagia,</p>&nbsp;&nbsp;
+                <p class="text-scale3">Edo <i class="fas fa-heart heart"></i> Dolly</p>
+            </div>
+        </section>
+    </div>
+    
+    <div class="nav-dots">
+        <div class="dot active" data-slide="0"></div>
+        <div class="dot" data-slide="1"></div>
+        <div class="dot" data-slide="2"></div>
+        <div class="dot" data-slide="3"></div>
+        <div class="dot" data-slide="4"></div>
+        <div class="dot" data-slide="5"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

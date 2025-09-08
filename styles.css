@@ -1,0 +1,802 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #b8866b;
+    --secondary-color: #7a6960;
+    --accent-color: #e8c8b0;
+    --light-bg: #fefaf7;
+    --dark-text: #5a5a5a;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+    line-height: 0.7;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 0; /* Layer 0 - paling dasar */
+}
+
+/* Background Image - Layer 1 */
+.bgi {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1; /* Layer 1 - di atas background body */
+    opacity: 0.6;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+/* Cover Section */
+.cover-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.cover-content {
+    max-width: 600px;
+    width: 90%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.guest-container {
+    margin: 25px 0;
+}
+
+.guest-label {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.guest-name-box {
+    padding: 15px;
+    background: var(--light-bg);
+    border-radius: 8px;
+    border: 1px solid var(--accent-color);
+    margin: 10px 0;
+}
+
+#guest-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.open-invitation-btn {
+    background-color: #f74040dd;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.open-invitation-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sembunyikan cover section setelah dibuka */
+.cover-section.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Sembunyikan navigasi di cover */
+.cover-section ~ .nav-dots {
+    display: none;
+}
+
+.cover-section.hidden ~ .nav-dots{
+    display: flex;
+}
+
+.slider-container {
+    display: flex;
+    width: 600%; /* Diubah dari 500% ke 600% untuk 6 slide */
+    height: 100vh;
+    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    z-index: 2;
+    position: relative;
+}
+
+/* Slides - Layer 2 */
+.slide {
+    width: 16.666%; /* Diubah dari 20% ke 16.666% untuk 6 slide */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: relative; /* PASTIKAN INI ADA */
+    overflow: hidden;
+    background: transparent !important;
+    z-index: 2;
+}
+
+/* Slide Content - Layer 3 (di dalam slide) */
+.slide-content {
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    z-index: 3;
+    backdrop-filter: blur(1px);
+    position: relative; /* PASTIKAN INI ADA */
+}
+
+.gbr1 {
+    width: 100%;
+    height: 60%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+    max-width: 100%;
+    display: block;
+}
+
+/* Perbaikan untuk gambar pasangan di slide 1 */
+.gbr2 {
+    width: 100%;
+    height: auto;
+    max-height: 782px;
+    border-radius: 0px;
+    top: -79px;
+    background: transparent !important;
+    position: relative;
+    opacity: 0.2 !important;
+}
+
+/* Navigation - Layer 100 (paling atas) */
+.nav-dots {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.3);
+}
+
+/* HAPUS SEMUA BACKGROUND SLIDE */
+.slide-1, .slide-2, .slide-3, .slide-4, .slide-5, .slide-6 {
+    background: transparent !important;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.divider {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+    margin: 15px auto;
+}
+
+.couple-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.couple-info {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    justify-items: center;
+    gap: 40px;
+    width: 100%;
+    margin-top: 31px;
+    position: absolute;
+}
+
+.couple {
+    text-align: center;
+    max-width: 440px;
+    margin-top: 40px;
+}
+
+.couple-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.couple-desc {
+    font-style: italic;
+    color: #9c8e87;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.and {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 40px;
+}
+
+/* Date Section */
+.date-day {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom:20px;
+}
+
+.date-full {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    color: darkgoldenrod;
+    font-weight: bold;  
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.date-location {
+    margin-top: 20px;
+}
+
+.date-location i {
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-size: 1.3rem;
+}
+
+/* Grid untuk section tanggal & lokasi */
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 25px 0;
+}
+
+@media (min-width: 768px) {
+    .event-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.event-card {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.event-icon {
+  font-size: 40px;
+  color: var(--secondary-color); 
+  margin-bottom: 20px;
+}
+.event-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+/* Grid untuk section peta */
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .location-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.location-card {
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.location-btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.location-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Gallery Slider */
+.gallery-slider {
+    position: relative;
+    width: 100%;
+    height: 510px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.gallery-track {
+    display: flex;
+    width: auto; /* 4 gambar */
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.gallery-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Tombol */
+.gallery-left,
+.gallery-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.gallery-left { left: 10px; }
+.gallery-right { right: 10px; }
+
+/* Countdown Section */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin-top: 5px;
+}
+
+/* Map Section */
+.map-container {
+    width: 100%;
+    height: 250px;
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f5e4d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.heart {
+    color: #e67e7e;
+    margin: 0 5px;
+}
+
+/* Progress Bar - Layer 101 (paling atas) */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: var(--primary-color);
+    width: 0%;
+    transition: width 0.3s ease;
+    z-index: 101;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slide-content {
+        padding: 20px 15px;
+        width: 95%;
+        max-height: 90%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .couple-container {
+        gap: 20px;
+    }
+    .couple-info {
+    margin-top: 74px;
+}
+    .gbr2{
+        top: 20px;
+    }
+    .couple {
+        width: 100%;
+        margin-top: -17px;
+    }
+    
+    .couple-name {
+        font-size: 1.3rem;
+    }
+    .and {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+    
+    .gallery-track img {
+    object-fit: fill;
+}
+    
+    .countdown-item {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    
+    .nav-dots {
+        right: 10px;
+    }
+    
+    .map-container {
+        height: 190px;
+    }
+    
+    .bgi {
+        object-fit: cover;
+    }
+    
+    .cover-content {
+        padding: 20px 15px;
+    }
+    
+    .guest-name-box {
+        padding: 10px;
+    }
+    
+    #guest-name {
+        font-size: 1.1rem;
+    }
+    
+    .event-grid,
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation */
+.animate-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.text-scale {
+    font-size: 20px;
+    line-height: 1; /* semakin besar nilainya, semakin renggang */
+}
+.text-scale2 {
+    font-size: 24px;
+    line-height: 1; /* semakin besar nilainya, semakin renggang */
+}
+
+.text-scale3 {
+    font-size: 20px;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+/* Tambahan untuk slide baru - Turut Mengundang */
+.invitation-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+@media (min-width: 768px) {
+    .invitation-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.invitation-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.invitation-card {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.invitation-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.invitation-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.invitation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.invitation-list li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    border-bottom: 1px dashed #e8c8b0;
+}
+
+.invitation-list li:last-child {
+    border-bottom: none;
+}
+
+.bible-verse {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+.verse-source {
+    margin-top: 10px;
+    font-weight: 500;
+    text-align: right;
+    font-style: normal;
+}
+
+/* Tombol kontrol musik */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(184, 134, 107, 0.8);
+    border: 2px solid white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.music-control:hover {
+    background: rgba(122, 105, 96, 0.9);
+    transform: scale(1.1);
+}
+
+.music-control i {
+    font-size: 20px;
+}
+
+/* Animasi baru untuk konten slide */
+@keyframes fadeScaleIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.95) translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
+
+.animate-in {
+    animation: fadeScaleIn 1s ease-out forwards;
+}
+
+/* Perubahan untuk navigasi dots */
+.nav-dots {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Responsif untuk slide baru */
+@media (max-width: 768px) {
+    .invitation-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .invitation-card {
+        padding: 10px;
+        margin-bottom: 26px;
+        margin-top: -33px;
+    }
+    
+    .invitation-title {
+        font-size: 1.2rem;
+    }
+    
+    .invitation-list li {
+        font-size: 1rem;
+    }
+    
+    .bible-verse {
+        padding: 15px;
+        font-size: 0.9rem;
+        margin-top: -47px;
+    }
+    
+    .music-control {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .music-control i {
+        font-size: 16px;
+    }
+    
+    .nav-dots {
+        right: 10px;
+        gap: 12px;
+    }
+}
